@@ -1,0 +1,65 @@
+table:
+  name: payroll
+  schema: public
+object_relationships:
+- name: employee
+  using:
+    foreign_key_constraint_on: employee_id
+insert_permissions:
+- permission:
+    backend_only: false
+    check: {}
+    columns:
+    - id
+    - salary
+    - employee_id
+  role: HR
+select_permissions:
+- permission:
+    columns:
+    - salary
+    - employee_id
+    - id
+    filter:
+      employee_id:
+        _eq: X-Hasura-User-Id
+  role: EPL
+- permission:
+    columns:
+    - salary
+    - employee_id
+    - id
+    filter: {}
+  role: HR
+- permission:
+    columns:
+    - salary
+    - employee_id
+    - id
+    filter:
+      employee_id:
+        _eq: X-Hasura-User-Id
+  role: Manager
+update_permissions:
+- permission:
+    check: {}
+    columns:
+    - salary
+    - employee_id
+    - id
+    filter: {}
+  role: HR
+- permission:
+    check: null
+    columns:
+    - salary
+    - employee_id
+    - id
+    filter:
+      employee_id:
+        _eq: X-Hasura-User-Id
+  role: Manager
+delete_permissions:
+- permission:
+    filter: {}
+  role: HR

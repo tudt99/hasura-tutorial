@@ -1,0 +1,43 @@
+type Mutation {
+  MyMutation: MyMutationOutput
+}
+
+type Mutation {
+  addUser(
+    name: String!
+  ): addUserOutput
+}
+
+type Mutation {
+  updateUser(
+    int: Int!
+    name: String!
+  ): updateOutput
+}
+
+type addUser {
+  name: String!
+}
+
+type updateUser {
+  name: String!
+}
+
+type InstertOutput {
+  name: String!
+}
+
+type addUserOutput {
+  id: Int!
+  name: String!
+}
+
+type updateOutput {
+  affected_rows: Int!
+}
+
+type MyMutationOutput {
+  id: Int!
+  name: String!
+}
+

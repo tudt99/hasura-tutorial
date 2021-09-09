@@ -1,0 +1,5 @@
+- name: test
+  definition:
+    url: http://172.17.01:4000/
+    timeout_seconds: 60
+  comment: ""

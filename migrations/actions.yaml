@@ -1,0 +1,24 @@
+actions:
+- name: MyMutation
+  definition:
+    kind: synchronous
+    handler: http://localhost:3000
+- name: addUser
+  definition:
+    kind: synchronous
+    handler: http://172.17.0.1:3030
+- name: updateUser
+  definition:
+    kind: synchronous
+    handler: http://172.17.0.1:3030/update
+custom_types:
+  enums: []
+  input_objects: []
+  objects:
+  - name: addUser
+  - name: updateUser
+  - name: InstertOutput
+  - name: addUserOutput
+  - name: updateOutput
+  - name: MyMutationOutput
+  scalars: []
